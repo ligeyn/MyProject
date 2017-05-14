@@ -1,0 +1,18 @@
+package ru.kpfu.itis.toyshop.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ru.kpfu.itis.toyshop.domain.Address;
+import ru.kpfu.itis.toyshop.repository.AddressRepository;
+
+
+@Service
+public class AddressService {
+
+    @Autowired
+    private AddressRepository addressRepository;
+
+    public void addAddress(Address address) {
+        addressRepository.saveAddress(address);
+    }
+}

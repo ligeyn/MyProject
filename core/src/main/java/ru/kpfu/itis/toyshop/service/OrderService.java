@@ -1,0 +1,33 @@
+package ru.kpfu.itis.toyshop.service;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ru.kpfu.itis.toyshop.domain.Order;
+import ru.kpfu.itis.toyshop.domain.User;
+import ru.kpfu.itis.toyshop.repository.OrderRepository;
+
+import java.util.List;
+
+@Service
+public class OrderService {
+    @Autowired
+    private OrderRepository orderRepository;
+
+    public void saveOrder(Order order) {
+        orderRepository.saveOrder(order);
+    }
+
+    public List<Order> getOrderByUser(User user) {
+        return orderRepository.getOrderByUser(user);
+    }
+
+    public void updateOrder(Order order) {
+        order.setStatus("Отменен");
+        orderRepository.updateOrder(order);
+    }
+
+    public Order getOrderById(Long id) {
+        return orderRepository.getOrderById(id);
+    }
+}
